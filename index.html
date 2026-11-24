@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Railway Study Hub – Free Mock Test & Notes</title>
+<style>
+:root{--navy:#12315a;--blue:#1769aa;--orange:#ff9f1c;--bg:#f3f6fb;--ink:#172536;--muted:#637386;--green:#16834a}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(120deg,#102b50,#1769aa);color:white;padding:24px 18px 30px}
+.wrap{max-width:1050px;margin:auto}.brand{font-size:14px;opacity:.9;letter-spacing:.4px}.hero{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.hero h1{font-size:clamp(26px,5vw,42px);margin:10px 0}.hero p{margin:0;color:#e4efff}.tag{background:#ffffff20;padding:10px 14px;border-radius:14px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}nav button,.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:700;cursor:pointer}nav button{background:#ffffff20;color:white}nav button.active{background:white;color:var(--navy)}
+main{max-width:1050px;margin:22px auto;padding:0 14px}.panel{display:none}.panel.active{display:block}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.card{background:white;padding:18px;border-radius:16px;box-shadow:0 5px 18px #17365d0c}.card h3{margin:0 0 8px}.muted{color:var(--muted)}.stat{font-size:27px;font-weight:800;color:var(--blue)}.btn{background:var(--blue);color:white}.btn.secondary{background:#e8f1fa;color:var(--navy)}.btn.orange{background:var(--orange);color:#2b210d}
+h2{margin:6px 0 15px;color:var(--navy)}.question{font-size:18px;font-weight:700;line-height:1.5}.option{display:block;width:100%;text-align:left;background:#f5f8fc;border:1px solid #dce5ef;border-radius:10px;padding:12px;margin:8px 0;cursor:pointer;color:var(--ink)}.option:hover{border-color:var(--blue)}.option.correct{background:#e5f7ec;border-color:#60b982}.option.wrong{background:#fff0ed;border-color:#e58c7c}.feedback{padding:12px;border-radius:10px;margin:12px 0;background:#f0f5fa}.note{border-left:4px solid var(--orange);padding:12px 14px;background:#fff9ee;border-radius:8px;margin:10px 0}.subject{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.subject button{border:1px solid #cbd8e6;background:white;color:var(--navy);border-radius:20px;padding:8px 13px;cursor:pointer}.subject button.active{background:var(--navy);color:white}
+footer{text-align:center;padding:25px;color:var(--muted);font-size:13px}
+@media(max-width:600px){header{padding-top:18px}.hero{align-items:flex-start}.tag{font-size:13px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="brand">FREE LEARNING • RAILWAY EXAM PREPARATION</div>
+<div class="hero"><div><h1>Railway Study Hub 🚆</h1><p>RRB NTPC • Group D • ALP | Mock Test और आसान Notes</p></div><div class="tag">पूरी तरह मुफ्त<br><b>सीखें • अभ्यास करें • आगे बढ़ें</b></div></div>
+<nav>
+<button class="active" data-tab="home">होम</button><button data-tab="mock">Mock Test</button><button data-tab="notes">Free Notes</button><button data-tab="about">तैयारी गाइड</button>
+</nav></div></header>
+<main>
+<section id="home" class="panel active">
+<div class="grid">
+<div class="card"><div class="muted">अभ्यास</div><div class="stat">Mock Test</div><p>MCQ सवाल हल करें और तुरंत अपना स्कोर देखें।</p><button class="btn" onclick="showTab('mock')">टेस्ट शुरू करें</button></div>
+<div class="card"><div class="muted">पढ़ाई</div><div class="stat">Free Notes</div><p>गणित, रीजनिंग और सामान्य ज्ञान के छोटे नोट्स।</p><button class="btn secondary" onclick="showTab('notes')">Notes पढ़ें</button></div>
+<div class="card"><div class="muted">लक्ष्य</div><div class="stat">रोज़ 30 मिनट</div><p>नियमित अभ्यास करें और गलत सवाल दोबारा पढ़ें।</p></div>
+</div>
+<div class="card" style="margin-top:15px"><h2>आज की तैयारी कैसे करें?</h2><ol><li>10 मिनट गणित या रीजनिंग पढ़ें।</li><li>10 मिनट GK/विज्ञान के नोट्स दोहराएँ।</li><li>10 मिनट Mock Test लगाएँ।</li></ol><p class="muted">यह शुरुआती अभ्यास सामग्री है। आधिकारिक भर्ती सूचना और सिलेबस के लिए RRB की वेबसाइट देखें।</p></div>
+</section>
+<section id="mock" class="panel">
+<div class="card"><h2>रेलवे प्रैक्टिस Mock Test</h2><p class="muted">यह छोटा डेमो टेस्ट है: 10 सवाल, हर सही उत्तर के 1 अंक।</p><div class="row"><b id="progress">सवाल 1 / 10</b><span id="score" style="float:right">स्कोर: 0</span></div><div style="height:8px;background:#e7edf4;border-radius:8px;margin:12px 0 18px"><div id="bar" style="height:8px;width:10%;background:#1769aa;border-radius:8px"></div></div><div class="question" id="qtext"></div><div id="options"></div><div id="feedback" class="feedback" style="display:none"></div><button class="btn" id="next" style="display:none" onclick="nextQ()">अगला सवाल</button><button class="btn secondary" id="restart" style="display:none" onclick="restart()">फिर से टेस्ट दें</button></div>
+</section>
+<section id="notes" class="panel">
+<h2>Free Study Notes</h2><div class="subject"><button class="active" onclick="showNote('math',this)">गणित</button><button onclick="showNote('reason',this)">रीजनिंग</button><button onclick="showNote('gk',this)">सामान्य ज्ञान</button><button onclick="showNote('science',this)">सामान्य विज्ञान</button></div>
+<div class="card" id="notecontent"></div>
+</section>
+<section id="about" class="panel">
+<div class="card"><h2>रेलवे परीक्षा की तैयारी गाइड</h2><h3>मुख्य विषय</h3><ul><li>गणित (Mathematics)</li><li>सामान्य बुद्धिमत्ता एवं तर्कशक्ति (Reasoning)</li><li>सामान्य जागरूकता (General Awareness)</li><li>सामान्य विज्ञान (परीक्षा के अनुसार)</li></ul><h3>सही तरीका</h3><ol><li>अपने लक्ष्य पद का नवीनतम आधिकारिक सिलेबस देखें।</li><li>हर विषय के बेसिक कॉन्सेप्ट समझें।</li><li>पिछले वर्षों के प्रश्नपत्र और मॉक टेस्ट हल करें।</li><li>गलतियों की कॉपी बनाकर हर सप्ताह दोहराएँ।</li></ol><div class="note">ध्यान दें: NTPC, Group D और ALP का पैटर्न/योग्यता अलग हो सकती है। आवेदन से पहले संबंधित RRB की आधिकारिक अधिसूचना ज़रूर पढ़ें।</div><p><a href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener">RRB की आधिकारिक वेबसाइट खोलें</a></p></div>
+</section>
+</main><footer>Railway Study Hub • मुफ्त अभ्यास के लिए बनाया गया डेमो</footer>
+<script>
+const questions=[
+{q:"25 का 20% कितना होगा?",o:["2","5","10","20"],a:1,e:"20% = 20/100; 25 × 20/100 = 5।"},
+{q:"श्रृंखला पूरी करें: 2, 4, 8, 16, __",o:["18","24","32","36"],a:2,e:"हर संख्या दोगुनी हो रही है। अगली संख्या 32 है।"},
+{q:"भारत की राजधानी क्या है?",o:["मुंबई","नई दिल्ली","कोलकाता","चेन्नई"],a:1,e:"भारत की राजधानी नई दिल्ली है।"},
+{q:"1 किलोमीटर में कितने मीटर होते हैं?",o:["100","500","1000","10000"],a:2,e:"1 किलोमीटर = 1000 मीटर।"},
+{q:"यदि CAT को DBU लिखा जाए, तो DOG को कैसे लिखेंगे?",o:["EPH","CNG","EOG","FPH"],a:0,e:"हर अक्षर के बाद वाला अक्षर: D→E, O→P, G→H।"},
+{q:"पानी का रासायनिक सूत्र क्या है?",o:["CO₂","O₂","H₂O","NaCl"],a:2,e:"पानी का सूत्र H₂O है।"},
+{q:"भारत का राष्ट्रीय पशु कौन है?",o:["शेर","बाघ","हाथी","मोर"],a:1,e:"भारत का राष्ट्रीय पशु बाघ है।"},
+{q:"144 का वर्गमूल क्या है?",o:["10","11","12","14"],a:2,e:"12 × 12 = 144।"},
+{q:"सप्ताह में कितने दिन होते हैं?",o:["5","6","7","8"],a:2,e:"एक सप्ताह में 7 दिन होते हैं।"},
+{q:"मानव शरीर में रक्त पंप करने वाला अंग कौन-सा है?",o:["फेफड़ा","मस्तिष्क","हृदय","गुर्दा"],a:2,e:"हृदय रक्त को पूरे शरीर में पंप करता है।"}
+];
+let qi=0,points=0,answered=false;
+function renderQ(){answered=false;let x=questions[qi];document.getElementById('progress').textContent=`सवाल ${qi+1} / ${questions.length}`;document.getElementById('score').textContent='स्कोर: '+points;document.getElementById('bar').style.width=((qi+1)/questions.length*100)+'%';document.getElementById('qtext').textContent=x.q;document.getElementById('options').innerHTML='';x.o.forEach((v,i)=>{let b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+v;b.onclick=()=>answer(i,b);document.getElementById('options').appendChild(b)});document.getElementById('feedback').style.display='none';document.getElementById('next').style.display='none';document.getElementById('restart').style.display='none'}
+function answer(i,b){if(answered)return;answered=true;let x=questions[qi];let opts=[...document.querySelectorAll('.option')];opts[x.a].classList.add('correct');if(i===x.a)points++;else b.classList.add('wrong');document.getElementById('score').textContent='स्कोर: '+points;let f=document.getElementById('feedback');f.style.display='block';f.textContent=(i===x.a?'सही जवाब! ':'सही जवाब: '+x.o[x.a]+'. ')+x.e;document.getElementById('next').style.display='inline-block';document.getElementById('next').textContent=qi===questions.length-1?'रिजल्ट देखें':'अगला सवाल'}
+function nextQ(){if(qi<questions.length-1){qi++;renderQ()}else{document.getElementById('qtext').textContent=`टेस्ट पूरा हुआ! आपका स्कोर ${points} / ${questions.length} है।`;document.getElementById('options').innerHTML='';document.getElementById('feedback').style.display='none';document.getElementById('next').style.display='none';document.getElementById('restart').style.display='inline-block';}}
+function restart(){qi=0;points=0;renderQ()}
+const notes={
+math:`<h3>गणित – जरूरी सूत्र</h3><ul><li>प्रतिशत = (भाग ÷ कुल) × 100</li><li>औसत = सभी संख्याओं का योग ÷ कुल संख्याएँ</li><li>लाभ = विक्रय मूल्य − क्रय मूल्य</li><li>हानि = क्रय मूल्य − विक्रय मूल्य</li><li>गति = दूरी ÷ समय</li><li>साधारण ब्याज = (मूलधन × दर × समय) ÷ 100</li></ul><div class="note">उदाहरण: 200 का 10% = 200 × 10/100 = 20</div>`,
+reason:`<h3>रीजनिंग – बेसिक ट्रिक्स</h3><ul><li>संख्या श्रृंखला में जोड़, घटाव, गुणा और भाग का पैटर्न देखें।</li><li>अक्षर श्रृंखला में A=1, B=2 ... Z=26 याद रखें।</li><li>दिशा प्रश्न में पहले उत्तर दिशा को आधार मानकर नक्शा बनाएँ।</li><li>कोडिंग-डिकोडिंग में अक्षरों का स्थान बदलने का नियम खोजें।</li><li>रक्त संबंध के सवाल में परिवार का छोटा चार्ट बनाएँ।</li></ul><div class="note">रोज़ 10–15 सवाल हल करें और समय नोट करें।</div>`,
+gk:`<h3>सामान्य ज्ञान – याद रखने योग्य</h3><ul><li>भारत की राजधानी – नई दिल्ली</li><li>भारत का संविधान लागू हुआ – 26 जनवरी 1950</li><li>राष्ट्रीय पशु – बाघ</li><li>राष्ट्रीय पक्षी – मोर</li><li>राष्ट्रीय जलीय जीव – गंगा नदी डॉल्फिन</li><li>भारतीय संसद के दो सदन – लोकसभा और राज्यसभा</li></ul><div class="note">समसामयिकी के लिए रोज़ विश्वसनीय समाचार और आधिकारिक स्रोत पढ़ें।</div>`,
+science:`<h3>सामान्य विज्ञान – बेसिक नोट्स</h3><ul><li>पानी का रासायनिक सूत्र – H₂O</li><li>कार्बन डाइऑक्साइड – CO₂</li><li>मानव शरीर में रक्त पंप करने वाला अंग – हृदय</li><li>पौधे प्रकाश संश्लेषण से भोजन बनाते हैं।</li><li>बल की SI इकाई – न्यूटन</li><li>ऊर्जा की SI इकाई – जूल</li></ul><div class="note">विज्ञान में परिभाषा, इकाई और दैनिक जीवन के उदाहरण साथ-साथ पढ़ें।</div>`
+};
+function showNote(k,el){document.querySelectorAll('.subject button').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.getElementById('notecontent').innerHTML=notes[k]}
+function showTab(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='mock'&&!document.getElementById('qtext').textContent)renderQ();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));showNote('math',document.querySelector('.subject button'));renderQ();
+</script>
+</body></html>
